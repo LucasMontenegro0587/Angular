@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": "#00001-U",
+      "firstName": "Lucas Leonel",
+      "lastName": "Montenegro Burgos",
+      "email": "lmontenegroburgos@gmail.com",
+      "password": "Pentahouse-00001",
+      "role": "ADMIN",
+      "token": "ndsHSBnsdjkasJs354MSjsnmvcs332SJnxjS",
+      "createdAt": "2024-10-24T00:14:33.140Z"
+    },
+    {
+      "id": "#00002-U",
+      "firstName": "Martin Emiliano",
+      "lastName": "Bruno",
+      "email": "mbruno@bna.com.ar",
+      "createdAt": "2024-10-24T01:28:09.184Z",
+      "role": "USER",
+      "password": "Pentahouse-00002",
+      "token": "FKejj6VrYmRw2EtEuecO"
+    }
+  ],
+  "products": [
+    {
+      "id": "#00001-P",
+      "name": "PS5",
+      "price": 5000
+    }
+  ]
+}

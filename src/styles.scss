@@ -1,0 +1,128 @@
+/* Debo agregar estilos */
+@import '@sweetalert2/theme-dark/dark.scss';
+
+html, body { 
+  height: 50%; /* Ajusta el valor de la altura */
+  width: 50%; /* Ajusta el valor del ancho */
+  margin: 25%; 
+}
+
+body { 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+.presentation-text {
+  font-size: 1.2rem;
+  color: #34495E; /* Un tono azul grisáceo para elegancia y mejor legibilidad */
+  line-height: 1.8;
+  text-align: center;
+  font-weight: 100; /* Peso de fuente medio para una lectura suave */
+  height: 50px;
+  width: 50px; /* Limita el ancho para mejorar la legibilidad en pantallas grandes */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pillar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #1f2c38; /* Un tono azul oscuro para mayor elegancia */
+  height: 20px;
+  width: 20px;
+  margin: 20px 20px 20px 20px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #2100b4; /* Línea decorativa debajo del título */
+  padding: auto;
+}
+
+.pillar-description {
+  font-size: 1rem;
+  color: #555; /* Gris para mejor lectura */
+  line-height: 1.6;
+  margin: auto;
+  text-align: justify; /* Justificar texto para un aspecto más formal */
+}
+
+.card-image { // ARREGLAR //
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 300px; /* Tamaño máximo de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Ajusta la imagen dentro del contenedor */
+}
+
+.card-body { // ARREGLAR //
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center; /* Centra el contenido del cuerpo de la tarjeta */
+  width: 100%;
+  height: 300px; /* Ajusta la altura de todas las tarjetas a un tamaño uniforme */
+  padding: 20px;
+  background-color: #f8f9fa; /* Color de fondo suave */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar un efecto de elevación */
+}
+
+@media (min-width: 768px) {
+  .fixed-height-card {
+      max-width: 200px; /* Aumenta el tamaño de las cards en pantallas medianas */
+  }
+}
+
+@media (min-width: 1024px) {
+  .fixed-height-card {
+      max-width: 250px; /* Aumenta aún más el tamaño de las cards en pantallas grandes */
+  }
+}
+
+// Custom Theming for Angular Material 
+// For more information: https://material.angular.io/guide/theming
+// @use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+// @include mat.core();
+
+// Define the theme object.
+// $pf-baez-59435-theme: mat.define-theme(
+//   (
+//     color: (
+//       theme-type: light,
+//       primary: mat.$azure-palette,
+//       tertiary: mat.$magenta-palette,
+//       // tertiary: mat.$blue-palette,
+//     ),
+//     density: (
+//       scale: 0,
+//     ),
+//   )
+// );
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+// :root {
+//   @include mat.all-component-themes($pf-baez-59435-theme);
+// }
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+// @include mat.typography-hierarchy($pf-baez-59435-theme);
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($pf-baez-59435-theme);
+/* You can add global styles to this file, and also import other style files */
+
+// html,
+// body {
+//   height: 100%;
+// }
+// body {
+//   margin: 0;
+//   font-family: Roboto, "Helvetica Neue", sans-serif;
+// }

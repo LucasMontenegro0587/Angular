@@ -1,0 +1,35 @@
+// Estilos personalizados
+.sidenav-container {
+  height: 100vh; // Ocupa toda la altura de la pantalla
+}
+
+mat-sidenav {
+  width: 250px; // Ancho del menú lateral
+  background-color: #e0f7fa; // Color de fondo del menú lateral
+}
+
+mat-sidenav-content {
+  padding: 16px; // Espaciado alrededor del contenido
+  background-color: #f5f5f5; // Fondo claro para el área principal
+}
+
+.content-area {
+  margin-top: 16px; // Separación superior para el contenido principal
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 8px; // Bordes redondeados
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Sombra sutil para un efecto de elevación
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between; // Distribuye el contenido uniformemente en la barra
+  padding: 0 16px;
+  color: #000000; // Color del texto blanco para contrastar con el fondo
+}
+
+.mat-button {
+  font-weight: bold; // Negrita para los botones
+  margin: 0 8px; // Espaciado entre los botones
+  color: #ffffff; // Color de texto blanco para los botones
+}
