@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Para Material Design
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsComponent } from './forms/inscriptions/inscriptions.component'; // Formulario de inscripción
 import { MatButtonModule } from '@angular/material/button'; // Módulo de botones
 import { MatFormFieldModule } from '@angular/material/form-field'; // Módulo de campos de formulario
 import { MatIconModule } from '@angular/material/icon'; // Módulo de íconos
@@ -16,7 +17,7 @@ import { MatTableModule } from '@angular/material/table'; // Módulo de tabla
 import { MatToolbarModule } from '@angular/material/toolbar'; // Módulo de toolbar
 import { ReactiveFormsModule } from '@angular/forms'; // Módulo de formularios reactivos
 import { StudentsComponent } from '../features/dashboard/students/students.component';
-import { CreateEditStudents } from '../features/dashboard/students/create-edit-students/create-edit-students.component';
+import { studentsManagement } from '../features/dashboard/students/students-management/students-management.component'; // Formulario de usuarios 
 import { NavbarComponent } from '../layout/navbar/navbar.component'; // Componente Navegación
 import { SidebarComponent } from '../layout/sidebar/sidebar.component'; // Componente Barra laterial
 import { TopbarComponent } from '../layout/topbar/topbar.component'; // Componente Barra superior
@@ -54,6 +55,7 @@ import { TitleSizeDirective } from './directives/title-size.directive'; // Direc
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    FormsComponent,
     MatTableModule,
     MatIconModule,
     MatButtonModule,
@@ -67,7 +69,7 @@ import { TitleSizeDirective } from './directives/title-size.directive'; // Direc
     TopbarComponent,
     StudentsComponent,
     StudentsFullName,
-    CreateEditStudents,
+    studentsManagement,
     TitleSizeDirective
   ],
   providers: [],

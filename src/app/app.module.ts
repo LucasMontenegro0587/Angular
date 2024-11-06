@@ -7,7 +7,6 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
-import { RootReducer } from './store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { SharedModule } from "./shared/shared.module";
 import { TopbarComponent } from "./layout/topbar/topbar.component";
@@ -22,7 +21,8 @@ import { TopbarComponent } from "./layout/topbar/topbar.component";
     RouterModule,
     StoreModule.forRoot(RootReducer, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
-    SharedModule
+    SharedModule,
+    StoreModule.forRoot({}, {})
   ],
 
   exports: [

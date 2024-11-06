@@ -1,0 +1,81 @@
+<form class="forms" [formGroup]="inscriptionForm" (ngSubmit)="formsInscriptions()">
+  <h2>Formulario de Inscripción</h2>
+
+  <!-- Datos Personales -->
+  <div class="form-group">
+    <label for="fullName">Nombre Completo:</label>
+    <input id="fullName" type="text" formControlName="fullName" />
+    <div *ngIf="inscriptionForm.get('fullName')?.invalid && inscriptionForm.get('fullName')?.touched">
+      <small *ngIf="inscriptionForm.get('fullName')?.errors?.['required']">Campo obligatorio</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="dni">Documento de Identificación:</label>
+    <input id="dni" type="text" formControlName="dni" />
+    <div *ngIf="inscriptionForm.get('dni')?.invalid && inscriptionForm.get('dni')?.touched">
+      <small *ngIf="inscriptionForm.get('fullName')?.errors?.['required']">Campo obligatorio</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="birthDate">Fecha de Nacimiento:</label>
+    <input id="birthDate" type="date" formControlName="birthDate" />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Correo Electrónico:</label>
+    <input id="email" type="email" formControlName="email" />
+    <div *ngIf="inscriptionForm.get('email')?.invalid && inscriptionForm.get('email')?.touched">
+      <small *ngIf="inscriptionForm.get('fullName')?.errors?.['required']">Campo obligatorio</small>
+    </div>
+  </div>
+
+  <!-- Información de la cursada -->
+  <div class="form-group">
+    <label for="course">Curso:</label>
+    <select id="course" formControlName="course">
+      <option *ngFor="let course of courseOptions" [value]="course">{{ course }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="modality">Modalidad:</label>
+    <select id="modality" formControlName="modality">
+      <option value="presencial">Presencial</option>
+      <option value="online">Online</option>
+      <option value="hibrido">Híbrido</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="shift">Turno:</label>
+    <select id="shift" formControlName="shift">
+      <option value="mañana">Mañana</option>
+      <option value="tarde">Tarde</option>
+      <option value="noche">Noche</option>
+    </select>
+  </div>
+
+  <!-- Método de Pago -->
+  <div class="form-group">
+    <label for="paymentMethod">Método de Pago:</label>
+    <select id="paymentMethod" formControlName="paymentMethod">
+      <option value="credito">Tarjeta de Crédito</option>
+      <option value="debito">Tarjeta de Débito</option>
+      <option value="transferencia">Transferencia Bancaria</option>
+    </select>
+  </div>
+
+  <!-- Términos y Condiciones -->
+  <div class="form-group">
+    <label>
+      <input type="checkbox" formControlName="terms" />
+      Acepto los términos y condiciones
+    </label>
+    <div *ngIf="inscriptionForm.get('terms')?.invalid && inscriptionForm.get('terms')?.touched"></div>
+  </div>
+
+  <!-- Botón de Envío -->
+  <button type="submit" [disabled]="inscriptionForm.invalid">Enviar Inscripción</button>
+</form>

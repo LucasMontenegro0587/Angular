@@ -36,6 +36,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.11",
     "@angular/compiler-cli": "^18.2.10",
+    "@ngrx/schematics": "^18.1.1",
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",

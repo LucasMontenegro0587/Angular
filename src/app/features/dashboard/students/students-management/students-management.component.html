@@ -1,0 +1,56 @@
+<form [formGroup]="studentForm" (ngSubmit)="managementInscriptions()">
+  <h2>Registro de Estudiante</h2>
+
+  <!-- Nombre Completo -->
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre Completo</mat-label>
+    <input matInput id="fullName" type="text" formControlName="fullName" />
+    <mat-error *ngIf="studentForm.get('fullName')?.invalid && studentForm.get('fullName')?.touched">
+      <small *ngIf="studentForm.get('fullName')?.errors?.['required']">Campo obligatorio</small>
+    </mat-error>
+  </mat-form-field>
+
+  <!-- DNI/Número de Identificación -->
+  <mat-form-field appearance="outline">
+    <mat-label>DNI/Número de Identificación</mat-label>
+    <input matInput id="dni" type="text" formControlName="dni" />
+    <mat-error *ngIf="studentForm.get('dni')?.invalid && studentForm.get('dni')?.touched">
+      <small *ngIf="studentForm.get('dni')?.errors?.['required']">Campo obligatorio</small>
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Fecha de Nacimiento -->
+  <mat-form-field appearance="outline">
+    <mat-label>Fecha de Nacimiento</mat-label>
+    <input matInput id="birthDate" type="date" formControlName="birthDate" />
+    <mat-error *ngIf="studentForm.get('birthDate')?.invalid && studentForm.get('birthDate')?.touched">
+      <small *ngIf="studentForm.get('birthDate')?.errors?.['required']">Campo obligatorio</small>
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Email -->
+  <mat-form-field appearance="outline">
+    <mat-label>Correo Electrónico</mat-label>
+    <input matInput id="email" type="email" formControlName="email" />
+    <mat-error *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched">
+      <small *ngIf="studentForm.get('email')?.errors?.['required']">Campo obligatorio</small>
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Teléfono -->
+  <mat-form-field appearance="outline">
+    <mat-label>Número de Teléfono</mat-label>
+    <input matInput id="phone" type="tel" formControlName="phone" />
+  </mat-form-field>
+
+  <!-- Dirección -->
+  <mat-form-field appearance="outline">
+    <mat-label>Dirección</mat-label>
+    <input matInput id="address" type="text" formControlName="address" />
+  </mat-form-field>
+
+  <!-- Botón de Envío -->
+  <button mat-raised-button color="primary" type="submit" [disabled]="studentForm.invalid">
+    Registrar Estudiante
+  </button>
+</form>
