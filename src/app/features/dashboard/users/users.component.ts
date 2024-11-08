@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './users.component.scss',
 })
 export class UsersComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'email', 'createdAt', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'createData', 'actions'];
   dataSource: User[] = [];
 
   isLoading = false;
@@ -48,14 +48,13 @@ export class UsersComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    if (confirm('Esta seguro?')) {
-      // this.dataSource = this.dataSource.filter((user) => user.id !== id);
+    if (confirm('¿Está seguro?')) {
       this.isLoading = true;
       this.usersService.removeUserById(id).subscribe({
-        next: (users) => {
-          this.dataSource = users;
+        next: () => {
+          this.loadUsers(); // Recarga los usuarios después de eliminar
         },
-        error: (err) => {
+        error: () => {
           this.isLoading = false;
         },
         complete: () => {
@@ -74,20 +73,18 @@ export class UsersComponent implements OnInit {
   openModal(editingUser?: User): void {
     this.matDialog
       .open(UserDialogComponent, {
-        data: {
-          editingUser,
-        },
+        data: { editingUser },
       })
       .afterClosed()
       .subscribe({
         next: (result) => {
-          if (!!result) {
+          if (result) {
             if (editingUser) {
               this.handleUpdate(editingUser.id, result);
             } else {
-              this.usersService
-                .createUser(result)
-                .subscribe({ next: () => this.loadUsers() });
+              this.usersService.createUser(result).subscribe({
+                next: () => this.loadUsers(),
+              });
             }
           }
         },
@@ -97,10 +94,10 @@ export class UsersComponent implements OnInit {
   handleUpdate(id: string, update: User): void {
     this.isLoading = true;
     this.usersService.updateUserById(id, update).subscribe({
-      next: (users) => {
-        this.dataSource = users;
+      next: () => {
+        this.loadUsers(); // Recarga usuarios después de la actualización
       },
-      error: (err) => {
+      error: () => {
         this.isLoading = false;
       },
       complete: () => {

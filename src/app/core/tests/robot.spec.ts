@@ -1,15 +1,15 @@
 import { Robot } from './robot';
 
-describe('Pruebas de Robot', () => {
-  let robot = new Robot('Matias');
+describe('Pruebas de Nanobot', () => {
+  let robot = new Robot('Cyber Drone');
 
   beforeEach(() => {
-    robot = new Robot('Naruto');
+    robot = new Robot('Cyber Drone');
   });
 
-  it('Al instanciar el robot, el usuario debe ser "Matias"', () => {
-    robot = new Robot('Matias');
-    expect(robot.usuario).toBe('Matias');
+  it('Al instanciar el robot, el usuario debe ser "Lucas"', () => {
+    robot = new Robot('Cyber Drone');
+    expect(robot.usuario).toBe('Lucas');
   });
 
   it('Al instanciar a robot, la bateria debe ser 100', () => {

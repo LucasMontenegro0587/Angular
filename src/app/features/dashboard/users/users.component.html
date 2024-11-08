@@ -1,0 +1,53 @@
+<app-navbar>
+  <mat-toolbar color="primary">
+    <span>Gestión de Usuarios</span>
+    <span class="spacer"></span>
+    <button mat-raised-button color="accent" (click)="openModal()">Nuevo Usuario</button>
+  </mat-toolbar>
+
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{ user.id }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{ user.name }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef> Correo Electrónico </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{ user.email }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="createData">
+      <mat-header-cell *matHeaderCellDef> Fecha de Creación </mat-header-cell>
+      <mat-cell *matCellDef="let user"> {{ user.createData | date:'short' }} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+      <mat-cell *matCellDef="let user">
+        <button mat-icon-button color="warn" (click)="onDelete(user.id)">
+          <mat-icon>Eliminar</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="openModal(user)">
+          <mat-icon>Editar</mat-icon>
+        </button>
+        <button mat-icon-button color="accent" (click)="goToDetail(user.id)">
+          <mat-icon>Detalles</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-progress-spinner *ngIf="isLoading" mode="indeterminate" color="primary"></mat-progress-spinner>
+
+  <div *ngIf="!dataSource.length && !isLoading" class="no-data">
+    <p>No hay usuarios disponibles</p>
+  </div>
+</app-navbar>
