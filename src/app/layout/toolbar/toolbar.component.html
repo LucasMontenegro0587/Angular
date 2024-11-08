@@ -1,0 +1,52 @@
+<mat-toolbar color="primary" class="infobar">
+  <ng-content>
+    <div class="toolbar-container">
+      <!-- Información del usuario -->
+      <div class="user-info" *ngIf="user">
+        <mat-icon>account_circle</mat-icon>
+        <span class="user-name">{{ user.nombre }} {{ user.apellido }}</span>
+      </div>
+
+      <!-- Opciones de navegación -->
+      <mat-nav-list class="nav-links">
+        <!-- Opciones para el Administrador -->
+        <ng-container *ngIf="rolActual === 'Administrador'">
+          <mat-list-item>
+            <a mat-button routerLink="/reportes" routerLinkActive="active">
+              <mat-icon>assessment</mat-icon> Reportes
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a mat-button routerLink="/configuracion" routerLinkActive="active">
+              <mat-icon>settings</mat-icon> Configuración
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a mat-button routerLink="/usuarios" routerLinkActive="active">
+              <mat-icon>group</mat-icon> Usuarios
+            </a>
+          </mat-list-item>
+        </ng-container>
+
+        <!-- Opciones para el Usuario -->
+        <ng-container *ngIf="rolActual === 'Usuario'">
+          <mat-list-item>
+            <a mat-button routerLink="/soporte" routerLinkActive="active">
+              <mat-icon>help_outline</mat-icon> Soporte
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a mat-button routerLink="/perfil" routerLinkActive="active">
+              <mat-icon>person</mat-icon> Mi Perfil
+            </a>
+          </mat-list-item>
+        </ng-container>
+      </mat-nav-list>
+
+      <!-- Botón de cierre de sesión -->
+      <button mat-raised-button color="warn" (click)="cerrarSesion()" class="logout-button">
+        <mat-icon>logout</mat-icon> Cerrar sesión
+      </button>
+    </div>
+  </ng-content>
+</mat-toolbar>

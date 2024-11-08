@@ -1,4 +1,27 @@
-<aside>
+<app-sidebar>
+  <link rel="stylesheet" href="sidebar.component.scss">
   <ng-content>
+    <ul>
+      <!-- Opciones para el Administrador -->
+      <ng-container *ngIf="rolActual === 'Administrador'">
+        <li>
+          <a routerLink="/gestion-alumnos" routerLinkActive="active">Gestión de Alumnos</a>
+        </li>
+        <li>
+          <a routerLink="/gestion-cursos" routerLinkActive="active">Gestión de Cursos</a>
+        </li>
+        <li>
+      </ng-container>
+  
+      <!-- Opciones para el Usuario -->
+      <ng-container *ngIf="rolActual === 'Usuario'">
+        <li>
+          <a routerLink="/mis-cursos" routerLinkActive="active">Mis Cursos</a>
+        </li>
+        <li>
+          <a routerLink="/perfil" routerLinkActive="active">Perfil</a>
+        </li>
+      </ng-container>
+    </ul>  
   </ng-content>
-</aside>
+</app-sidebar>

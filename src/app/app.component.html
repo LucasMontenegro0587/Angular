@@ -1,183 +1,31 @@
-<app-topbar>
-  <app-sidebar> X </app-sidebar>
-</app-topbar>
-<app-navbar>
-   <a routerLink="/index">Inicio</a>
-   <a routerLink="/about">Acerca de</a>
-   <a routerLink="/contact">Contacto</a>
-</app-navbar>
 <router-outlet></router-outlet>
-<!--
-<app-footer></app-footer> ¡DEJARLO PARA LUEGO!
-<span class="navbar-brand">Gestor del Alumnado (GEDA)</span>
-<link rel="stylesheet" href="app.component.scss">
-<button mat-button routerLink="src/app/dashboard/dashboard.component.html"
-  routerLinkActive="active">Inscripciones</button>
-<button mat-button routerLink="src/app/dashboard/create-edit-students.component.html"
-  routerLinkActive="active">Perfil</button>
-<button mat-button routerLink="src/app/app.component.html" routerLinkActive="active">Cursos</button>
-<div class="container my-5">
-  <p class="presentation-text"
-    style="font-size: 25px; font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
-    Bienvenidos al lugar ideal para potenciar tus habilidades en el mundo de la Programación.<br>Ofrecemos una variedad
-    de cursos enfocados en vos, para que puedas explorar y avanzar con más conocimientos en la búsqueda de un futuro
-    mejor.</p>
-  <div class="row my-4">
-    <div class="col-md-4">
-      <h2
-        style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-        class="pillar-title">Innovación Continua</h2>
-      <p style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-        class="pillar-description">Fomentamos la creatividad y el uso de tecnologías de vanguardia para resolver
-        problemas de manera efectiva.</p>
-    </div>
-    <div class="col-md-4">
-      <h2
-        style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-        class="pillar-title">Excelencia Académica</h2>
-      <p style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-        class="pillar-description">Brindamos contenidos de alta calidad con profesionales experimentados, asegurando una
-        experiencia educativa rigurosa.</p>
-    </div>
-    <div class="col-md-4">
-      <h2
-        style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-        class="pillar-title">Aprendizaje Personalizado</h2>
-      <p style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-        class="pillar-description">Adaptamos el proceso de enseñanza a las necesidades y habilidades individuales de
-        cada estudiante.</p>
-    </div>
-  </div>
-  <div class="row my-4">
-    <div class="col-md-4">
-      <h2
-        style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-        class="pillar-title">Compromiso con la Comunidad</h2>
-      <p style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-        class="pillar-description">Fomentamos el trabajo en equipo y la colaboración, construyendo una red de apoyo
-        entre estudiantes y docentes.</p>
-    </div>
-    <div class="col-md-4">
-      <h2
-        style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-        class="pillar-title">Desarrollo Profesional</h2>
-      <p style="font-weight: bold; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"
-        class="pillar-description">Orientamos a los alumnos para que alcancen sus metas profesionales, a través de una
-        educación práctica y relevante para el mercado laboral.</p>
-    </div>
-  </div>
-  <div class="container mt-5">
-    <h2 class="text-center" style="font-size: 50px;">Cursos disponibles</h2>
-    <div class="row" style="background-color: black;">
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="./images/mw-logo.png" class="card-image" alt="Desarrollo-Web">
-          <div class="card-body">
-            <h3 class="card-title">Maquetación Web</h3>
-            <button class="btn btn-success" onclick="inscribirse('Maquetación Web')">Inscribirse</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="./images/python-logo.png" class="card-image" alt="Python">
-          <div class="card-body">
-            <h3 class="card-title">Python</h3>
-            <button class="btn btn-success" onclick="inscribirse('Python')">Inscribirse</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="./images/angular-logo.png" class="card-image" alt="Angular">
-          <div class="card-body">
-            <h3 class="card-title">Angular</h3>
-            <button class="btn btn-success" onclick="inscribirse('Angular')">Inscribirse</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="./images/coffeescript-logo.png" class="card-image" alt="CoffeeScript">
-          <div class="card-body">
-            <h3 class="card-title">CoffeeScript</h3>
-            <button class="btn btn-success" onclick="inscribirse('CoffeeScript')">Inscribirse</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="./images/nuxtjs-logo.png" class="card-image" alt="Nuxt.Js">
-          <div class="card-body">
-            <h3 class="card-title">Nuxt.Js</h3>
-            <button class="btn btn-success" onclick="inscribirse('Nuxt.Js')">Inscribirse</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="./images/c++-logo.png" class="card-image" alt="C++">
-          <div class="card-body">
-            <h3 class="card-title">C++</h3>
-            <button class="btn btn-success" onclick="inscribirse('C++')">Inscribirse</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="./images/django-logo.png" class="card-image" alt="Django">
-          <div class="card-body">
-            <h3 class="card-title">Django</h3>
-            <button class="btn btn-success" onclick="inscribirse('Django')">Inscribirse</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="./images/tailwind-logo.jpg" class="card-image" alt="Tailwind-CSS">
-          <div class="card-body">
-            <h3 class="card-title">Tailwind CSS</h3>
-            <button class="btn btn-success" onclick="inscribirse('Tailwind CSS')">Inscribirse</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container mt-5">
-    <h2 class="text-center" style="font-size: 50px;">Cursos exclusivos</h2>
-    <div class="row" style="background-color: rgb(43, 0, 99)">
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="./images/kitsunia-logo.png" class="card-image" alt="Kitsunia">
-          <div class="card-body">
-            <h3 class="card-title">Kitsunia</h3>
-            <button class="btn btn-success" onclick="inscribirse('Kitsunia')">Inscribirse</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <img src="./images/valquirium-logo.png" class="card-image" alt="Valquirium">
-          <div class="card-body">
-            <h3 class="card-title">Valquirium</h3>
-            <button class="btn btn-success" onclick="inscribirse('Valquirium')">Inscribirse</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
--->
-<div style="
-    background-color: darkgray;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  ">
-  <mat-card>
-    <mat-card-content>
-      <router-outlet></router-outlet>
-    </mat-card-content>
-  </mat-card>
-</div>
+<app-topbar>
+<mat-toolbar color="primary">
+  <app-navbar>
+    <span class="navbar-brand">Gestor del Alumnado (GEDA)</span>
+    <button mat-button routerLink="/dashboard" routerLinkActive="active">Inscripciones</button>
+    <button mat-button routerLink="/profile" routerLinkActive="active">Perfil</button>
+    <button mat-button routerLink="/courses" routerLinkActive="active">Cursos</button>
+  </app-navbar>
+</mat-toolbar>
+</app-topbar>
+
+<app-sidebar>
+  <div class="container mt-4">
+    <h2 class="text-center mat-title">Bienvenidos al lugar ideal para potenciar tus habilidades en Programación</h2>
+    <p class="mat-body-1 text-center">Ofrecemos una variedad de cursos para que puedas explorar y avanzar con más conocimientos en la búsqueda de un futuro mejor.</p>
+    
+    <mat-grid-list cols="3" rowHeight="350px" gutterSize="20px">
+      <mat-grid-tile *ngFor="let curso of cursos" [style.background]="'#f3f4f6'">
+        <mat-card>
+          <img mat-card-image [src]="curso.imagen" [alt]="curso.titulo">
+          <mat-card-title>{{ curso.titulo }}</mat-card-title>
+          <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="inscribirse(curso.titulo)">Inscribirse</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <app-infobar>Información</app-infobar>
+  </div>    
+</app-sidebar>

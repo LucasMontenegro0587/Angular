@@ -1,4 +1,11 @@
-<header>
-  <ng-content>
-  </ng-content>
-</header>
+<mat-toolbar color="primary">
+  <div class="topbar-container">
+    <div class="motivational-section">
+      <p id="motivational-phrase">{{ frasesMotivacionales }}</p>
+    </div>
+    <div class="user-info">
+      <mat-icon>person</mat-icon>
+      <span>Bienvenido, {{ usuario.nombre }} {{ usuario.apellido }}</span>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,29 @@
+<app-infobar class="infobar">
+  <link rel="stylesheet" href="infobar.component.scss">
+  <mat-sidenav-container class="infobar">
+    <mat-sidenav mode="side" opened>
+      <ul>
+        <!-- Opciones para el Administrador -->
+        <ng-container *ngIf="rolActual === 'Administrador'">
+          <li>
+            <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+              <mat-icon>dashboard</mat-icon>
+              Panel de Control
+            </a>
+          </li>
+        </ng-container>
+  
+        <!-- Opciones para el Usuario -->
+        <ng-container *ngIf="rolActual === 'Usuario'">
+          <li>
+            <a mat-list-item routerLink="/información" routerLinkActive="active">
+              <mat-icon>info</mat-icon>
+              Información adicional
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+    </mat-sidenav>
+  </mat-sidenav-container>
+</app-infobar>
+

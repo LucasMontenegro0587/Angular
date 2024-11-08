@@ -1,4 +1,5 @@
-<nav>
+<app-navbar>
+  <link rel="stylesheet" href="navbar.component.scss">
   <ng-content>
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
@@ -7,10 +8,10 @@
           <h1 style="font-weight: bold">Academia Pentahouse</h1>
         </span>
         <div>
-          <button class="btn btn-primary btn-session" onclick="iniciarSesion()">Ingresar</button>
-          <button class="btn btn-secondary btn-session" onclick="finalizarSesion()">Desconectarse</button>
+          <button class="btn btn-primary btn-session" (click)="iniciarSesion()">Ingresar</button>
+          <button class="btn btn-secondary btn-session" (click)="finalizarSesion()">Desconectarse</button>
         </div>
       </div>
     </nav>
   </ng-content>
-</nav>
+</app-navbar>
