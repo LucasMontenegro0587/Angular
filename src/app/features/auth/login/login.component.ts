@@ -1,62 +1,41 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../../core/services/auth.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+import { Usuario } from 'src/app/Clases/usuario';
+import { IngresarService } from 'src/app/Servicios/ingresar.service';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  template: `
+    <div class="login">
+      <input type="text" placeholder="Usuario" [(ngModel)]='Usuario.email'>
+      <input type="password" placeholder="Contraseña" [(ngModel)]='Usuario.password'>
+      <a href="#" class="forgot">¿Olvidaste tu contraseña?</a>
+      <input type="submit" (click)="loguear()" value="Logueate">
+      <input type="submit" (click)="CompletarCampos()" value="Completar Campos">
+    </div>
+  `,
+  styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  passwordInputType: 'password' | 'text' = 'password';
+export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup;
+  Usuario: Usuario = new Usuario();
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private router: Router
-  ) {
-    this.loginForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
-    });
-  }
+  constructor(public authService: IngresarService, public router: Router) { }
 
-  togglePasswordInputType(): void {
-    if (this.passwordInputType === 'password') {
-      this.passwordInputType = 'text';
+  ngOnInit(): void {
+    if (this.authService.getItemLocal() == null) {
+      this.Usuario.estaLogueado = false;
     } else {
-      this.passwordInputType = 'password';
+      this.Usuario = this.authService.getItemLocal();
     }
   }
 
-  doLogin(): void {
-    this.authService.login(this.loginForm.value).subscribe({
-      next: (result) => {
-        this.router.navigate(['dashboard', 'home']);
-      },
-      error: (err) => {
-        console.error(err);
-        if (err instanceof Error) {
-          alert(err.message);
-        }
-        if (err instanceof HttpErrorResponse) {
-          if (err.status === 0) {
-            alert('No se pudo conectar con el servidor');
-          }
-        }
-      },
-    });
+  CompletarCampos() {
+    this.Usuario.email = "lucasmontenegroburgos@gmail.com";
+    this.Usuario.password = "Pentahouse";
   }
 
-  onSubmit(): void {
-    if (this.loginForm.invalid) {
-      this.loginForm.markAllAsTouched();
-    } else {
-      this.doLogin();
-    }
+  loguear() {
+    this.authService.loginWithEmailAndPassword(this.Usuario.email, this.Usuario.password);
   }
 }

@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
-import { User } from './models/index';
+import { User } from '../../../..';
 import { UsersService } from '../../../core/services/users.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -11,22 +13,27 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './users.component.scss',
 })
 export class UsersComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'email', 'createData', 'actions'];
+  displayedColumns: string[] = ['id', 'name', 'email', 'createdAt', 'actions'];
   dataSource: User[] = [];
 
   isLoading = false;
 
   usuario = {
-    nombre: 'Lucas Leonel',
-    apellido: 'Montenegro Burgos',
+    nombre: 'Josue',
+    apellido: 'Baez',
   };
+
+  authUser$: Observable<User | null>;
 
   constructor(
     private matDialog: MatDialog,
     private usersService: UsersService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
-  ) {}
+    private activatedRoute: ActivatedRoute,
+    private authService: AuthService
+  ) {
+    this.authUser$ = this.authService.authUser$;
+  }
 
   ngOnInit(): void {
     this.loadUsers();
@@ -48,13 +55,14 @@ export class UsersComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    if (confirm('¿Está seguro?')) {
+    if (confirm('Esta seguro?')) {
+      // this.dataSource = this.dataSource.filter((user) => user.id !== id);
       this.isLoading = true;
       this.usersService.removeUserById(id).subscribe({
-        next: () => {
-          this.loadUsers(); // Recarga los usuarios después de eliminar
+        next: (users) => {
+          this.dataSource = users;
         },
-        error: () => {
+        error: (err) => {
           this.isLoading = false;
         },
         complete: () => {
@@ -73,18 +81,20 @@ export class UsersComponent implements OnInit {
   openModal(editingUser?: User): void {
     this.matDialog
       .open(UserDialogComponent, {
-        data: { editingUser },
+        data: {
+          editingUser,
+        },
       })
       .afterClosed()
       .subscribe({
         next: (result) => {
-          if (result) {
+          if (!!result) {
             if (editingUser) {
               this.handleUpdate(editingUser.id, result);
             } else {
-              this.usersService.createUser(result).subscribe({
-                next: () => this.loadUsers(),
-              });
+              this.usersService
+                .createUser(result)
+                .subscribe({ next: () => this.loadUsers() });
             }
           }
         },
@@ -94,10 +104,10 @@ export class UsersComponent implements OnInit {
   handleUpdate(id: string, update: User): void {
     this.isLoading = true;
     this.usersService.updateUserById(id, update).subscribe({
-      next: () => {
-        this.loadUsers(); // Recarga usuarios después de la actualización
+      next: (users) => {
+        this.dataSource = users;
       },
-      error: () => {
+      error: (err) => {
         this.isLoading = false;
       },
       complete: () => {

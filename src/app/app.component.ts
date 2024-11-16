@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface Curso {
   titulo: string;
@@ -25,8 +26,11 @@ export class AppComponent {
     { titulo: 'Valquirium', imagen: './public/images/valquirium-logo.png' }
   ];
 
+  constructor(private router: Router) {}
+
   inscribirse(curso: string): void {
     console.log(`¿Estás seguro de anotarte en el curso: ${curso}?`);
     alert(`Inscripción al curso: ${curso} exitosa. ¡Felicidades!`);
+    this.router.navigate(['/dashboard']); // Navegar al dashboard después de la inscripción
   }
 }

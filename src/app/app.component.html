@@ -1,13 +1,12 @@
-<router-outlet></router-outlet>
 <app-topbar>
-<mat-toolbar color="primary">
-  <app-navbar>
-    <span class="navbar-brand">Gestor del Alumnado (GEDA)</span>
-    <button mat-button routerLink="/dashboard" routerLinkActive="active">Inscripciones</button>
-    <button mat-button routerLink="/profile" routerLinkActive="active">Perfil</button>
-    <button mat-button routerLink="/courses" routerLinkActive="active">Cursos</button>
-  </app-navbar>
-</mat-toolbar>
+  <mat-toolbar color="primary">
+    <app-navbar>
+      <span class="navbar-brand">Gestor del Alumnado (GEDA)</span>
+      <button mat-button routerLink="/dashboard" routerLinkActive="active">Inscripciones</button>
+      <button mat-button routerLink="/profile" routerLinkActive="active">Perfil</button>
+      <button mat-button routerLink="/courses" routerLinkActive="active">Cursos</button>
+    </app-navbar>
+  </mat-toolbar>
 </app-topbar>
 
 <app-sidebar>
@@ -29,3 +28,5 @@
     <app-infobar>Información</app-infobar>
   </div>    
 </app-sidebar>
+
+<router-outlet></router-outlet>

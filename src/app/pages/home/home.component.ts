@@ -4,14 +4,15 @@ import { Usuario } from 'src/app/Clases/usuario';
 import { IngresarService } from 'src/app/Servicios/ingresar.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class HomeComponent implements OnInit {
+  Usuario: Usuario= new Usuario();
+  constructor(public authService: IngresarService, public router: Router) {
 
-  Usuario:Usuario = new Usuario();
-  constructor(public authService: IngresarService, public router: Router) { }
+  }
 
   ngOnInit(): void {
     if (this.authService.getItemLocal()==null)
@@ -21,11 +22,6 @@ export class RegisterComponent implements OnInit {
     {
       this.Usuario = this.authService.getItemLocal();
     }
-
   }
 
-  crearCuenta(){
-    this.authService.registroWithEmailAndPassword(this.Usuario.email,this.Usuario.password);
-
-}
 }

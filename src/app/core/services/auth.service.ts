@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthData } from '../../features/auth/models';
 import { BehaviorSubject, map, Observable, of, throwError } from 'rxjs';
-import { User } from '../../features/dashboard/users/models';
+import { User } from '../../..';
 import { generateRandomString } from '../../shared/utils';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
